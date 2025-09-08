@@ -1,16 +1,31 @@
 import React, { useState } from "react";
-import { Link, BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./Nav/Header";
-import Navbar from "./Nav/Navbar";
-import Home from "./Pages/Home";
-import Shop from "./Pages/Shop";
-import Cart from "./Pages/Cart";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./Nav/Header.tsx";
+import Navbar from "./Nav/Navbar.tsx";
+import Home from "./Pages/Home.tsx";
+import Shop from "./Pages/Shop.tsx";
+import Cart from "./Pages/Cart.tsx";
 
 export default function App() {
   var items = [
-    { fullName: "Home page", path: "/", navIcon: "home" },
-    { fullName: "Pricelist", path: "/Shop", navIcon: "shop" },
-    { fullName: "Shopping cart", path: "/Cart", navIcon: "cart" },
+    {
+      fullName: "Home page",
+      path: "/",
+      navIcon: "home",
+      element: <Home />,
+    },
+    {
+      fullName: "Pricelist",
+      path: "/Shop",
+      navIcon: "shop",
+      element: <Shop />,
+    },
+    {
+      fullName: "Shopping cart",
+      path: "/Cart",
+      navIcon: "cart",
+      element: <Cart />,
+    },
   ];
   var [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -20,9 +35,9 @@ export default function App() {
         <Header frameName={items[selectedIndex].fullName} />
         <main className="flex-grow-1">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/Shop" element={<Shop />} />
-            <Route path="/Cart" element={<Cart />} />
+            {items.map((value) => {
+              return <Route path={value.path} element={value.element} />;
+            })}
           </Routes>
         </main>
         <Navbar
