@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Link, BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./Nav/Header";
-import Navbar from "./Nav/Navbar";
-import Home from "./Pages/Home";
-import Shop from "./Pages/Shop";
-import Cart from "./Pages/Cart";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./Nav/Header.tsx";
+import Navbar from "./Nav/Navbar.tsx";
+import Home from "./Pages/Home.tsx";
+import Shop from "./Pages/Shop.tsx";
+import Cart from "./Pages/Cart.tsx";
 
 export default function App() {
   var items = [

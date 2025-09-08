@@ -16,12 +16,15 @@ export default function Navbar({
   onSelect: onSelect,
 }: NavbarProps) {
   return (
-    <footer className="sticky-bottom p-3 ">
-      <div className="rounded bg-body-tertiary bg-opacity-25 shadow-sm">
-        <nav className="nav nav-pills nav-fill">
+    <footer className="sticky-bottom p-3">
+      <div>
+        <nav className="nav nav-pills nav-fill gap-3">
           {items.map((value, index) => {
             return (
-              <li className="nav-item" key={index}>
+              <li
+                className="nav-item border rounded-3 bg-body-tertiary bg-opacity-25 shadow-sm"
+                key={index}
+              >
                 <Link
                   to={value.path}
                   className={
