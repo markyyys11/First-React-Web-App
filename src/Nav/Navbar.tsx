@@ -22,18 +22,14 @@ export default function Navbar({
           {items.map((value, index) => {
             return (
               <li
-                className="nav-item border rounded-3 bg-body-tertiary bg-opacity-25 shadow-sm"
+                className="nav-item border rounded-3 bg-body-tertiary bg-opacity-75 shadow-sm"
                 key={index}
               >
                 <Link
                   to={value.path}
                   className={
                     "nav-link " +
-                    [
-                      selectedIndex === index
-                        ? "active "
-                        : "text-primary-emphasis",
-                    ]
+                    [selectedIndex === index ? "active " : "text-black"]
                   }
                   onClick={() => {
                     onSelect(index);
